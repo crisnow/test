@@ -1,42 +1,79 @@
 <template>
   <div class="container">
     <form @submit.prevent="sendEmail">
-
       <label>What Kind of Data You Request:</label>
-      <input type="text" v-model="kind" name="kind" placeholder="eg. case, agency, program, contact, etc.," />
-
-       <label>Purposes of the Data Request:</label>
-      <input type="text" v-model="purpose" name="purpose" placeholder="eg. call for government funding" />
-
-        <label>Report template you choose: </label><a target="_blank" href="https://drive.google.com/drive/u/1/folders/1GxDlc89yHR6hdbm3Jeumjlvx2QhgHLPN">(Choose from the Google Drive) </a>
-      <input type="text" v-model="template" name="template" placeholder="eg. template 1, 2, 3 please choose from the Google Drive folder" />
-
-       <label>Data Range: </label>
-      <input type="text" v-model="dataRange" name="dataRange" placeholder="eg. August 2020 - March 2021" />
-
-       <label>Data Frequency: </label>
-      <input type="text" v-model="dataFrequency" name="dataFrequency" placeholder="eg. Monthly, Weekly, Daily, etc.," />
-
-      <label>Fields you want to add from the template</label>
-      <input type="text" v-model="add" name="add" placeholder="if you select a template" />
-      
-       <label>Fields you want to remove from the template:</label>
-      <input type="text" v-model="remove" name="remove" placeholder="if you select a template" />
-      
-
-      <label>Severity Level:</label>
-      <input type="text" v-model="severity" name="severity" placeholder="eg. High, Medium, Low" />
-
-
-<hr>
-
-      <label>Name</label>
       <input
         type="text"
-        v-model="name"
-        name="name"
-        placeholder="Your Name"
+        v-model="kind"
+        name="kind"
+        placeholder="eg. case, agency, program, contact, etc.,"
       />
+
+      <label>Purposes of the Data Request:</label>
+      <input
+        type="text"
+        v-model="purpose"
+        name="purpose"
+        placeholder="eg. call for government funding"
+      />
+
+      <label>Report template you choose: </label
+      ><a
+        target="_blank"
+        href="https://drive.google.com/drive/u/1/folders/1GxDlc89yHR6hdbm3Jeumjlvx2QhgHLPN"
+        >(Choose from the Google Drive)
+      </a>
+      <input
+        type="text"
+        v-model="template"
+        name="template"
+        placeholder="eg. template 1, 2, 3 please choose from the Google Drive folder"
+      />
+
+      <label>Data Range: </label>
+      <input
+        type="text"
+        v-model="dataRange"
+        name="dataRange"
+        placeholder="eg. August 2020 - March 2021"
+      />
+
+      <label>Data Frequency: </label>
+      <input
+        type="text"
+        v-model="dataFrequency"
+        name="dataFrequency"
+        placeholder="eg. Monthly, Weekly, Daily, etc.,"
+      />
+
+      <label>Fields you want to add from the template</label>
+      <input
+        type="text"
+        v-model="add"
+        name="add"
+        placeholder="if you select a template"
+      />
+
+      <label>Fields you want to remove from the template:</label>
+      <input
+        type="text"
+        v-model="remove"
+        name="remove"
+        placeholder="if you select a template"
+      />
+
+      <label>Severity Level:</label>
+      <input
+        type="text"
+        v-model="severity"
+        name="severity"
+        placeholder="eg. High, Medium, Low"
+      />
+
+      <hr />
+
+      <label>Name</label>
+      <input type="text" v-model="name" name="name" placeholder="Your Name" />
 
       <label>Email</label>
       <input
@@ -70,6 +107,14 @@ export default {
       name: "",
       email: "",
       message: "",
+      kind: "",
+      purpose: "",
+      template: "",
+      dataRange: "",
+      dataFrequency: "",
+      add: "",
+      remove: "",
+      severity: "",
     };
   },
   methods: {
@@ -83,7 +128,15 @@ export default {
           {
             name: this.name,
             email: this.email,
-            message: this.meessage,
+            message: this.message,
+            kind: this.kind,
+            purpose: this.purpose,
+            template: this.template,
+            dataRange: this.dataRange,
+            dataFrequency: this.dataFrequency,
+            add: this.add,
+            remove: this.remove,
+            severity: this.severity
           }
         );
         console.log("it works!!!");
@@ -94,6 +147,15 @@ export default {
       this.name = "";
       this.email = "";
       this.message = "";
+      this.kind = "";
+      this.purpose = "";
+      this.message = "";
+      this.template = "";
+      this.dataRange = "";
+      this.dataFrequency = "";
+      this.add = "";
+      this.remove = "";
+      this.severity = "";
     },
   },
 };
